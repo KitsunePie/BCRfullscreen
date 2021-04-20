@@ -18,8 +18,7 @@ public class MainHook implements IXposedHookLoadPackage {
             return;
         if (!lpparam.packageName.equals("com.bilibili.priconne"))
             return;
-        Class<?> actClass = lpparam.classLoader.loadClass("com.bilibili.priconne.MainActivity");
-        XposedBridge.hookMethod(actClass.getDeclaredMethod("onResume"), new XC_MethodHook() {
+        XposedBridge.hookMethod(Activity.class.getDeclaredMethod("onResume"), new XC_MethodHook() {
             @Override
             protected void afterHookedMethod(MethodHookParam param) {
                 Activity act = (Activity) param.thisObject;
