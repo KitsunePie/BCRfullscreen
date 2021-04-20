@@ -1,0 +1,5 @@
+<resources>
+    <string-array name="xposedscope">
+        <item>com.bilibili.priconne</item>
+    </string-array>
+</resources>
