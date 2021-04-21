@@ -5,8 +5,6 @@ import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
 import static de.robv.android.xposed.XposedHelpers.findClass;
 import static de.robv.android.xposed.XposedHelpers.getObjectField;
 
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.view.WindowManager;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
@@ -25,8 +23,6 @@ public class MainHook implements IXposedHookLoadPackage {
 
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
-            return;
         if (!lpparam.packageName.equals(lpparam.processName))
             return;
         if (!lpparam.packageName.equals("android"))
@@ -35,7 +31,6 @@ public class MainHook implements IXposedHookLoadPackage {
             Class<?> windowsState =
                     findClass("com.android.server.wm.WindowState", lpparam.classLoader);
             XC_MethodHook hook = new XC_MethodHook() {
-                @TargetApi(Build.VERSION_CODES.P)
                 @Override
                 protected void beforeHookedMethod(MethodHookParam param) {
                     WindowManager.LayoutParams attrs =
