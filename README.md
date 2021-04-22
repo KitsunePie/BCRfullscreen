@@ -4,7 +4,7 @@
 
 ## [下载](https://github.com/KitsunePie/BCRfullscreen/releases/)
 
->[![APK: v1.1](https://img.shields.io/badge/APK-v1.1-brightgreen)](https://github.com/KitsunePie/BCRfullscreen/releases/download/1.1/app-release.apk)
+>[![APK: v1.2](https://img.shields.io/badge/APK-v1.2-brightgreen)](https://github.com/KitsunePie/BCRfullscreen/releases/download/1.2/app-release.apk)
 
 ![Download-Count](https://img.shields.io/github/downloads/KitsunePie/BCRfullscreen/total?color=blue)
 
