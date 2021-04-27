@@ -33,6 +33,8 @@ public class MainHook implements IXposedHookLoadPackage {
                 protected void beforeHookedMethod(MethodHookParam param) {
                     WindowManager.LayoutParams attrs =
                             (WindowManager.LayoutParams) getObjectField(param.args[0], "mAttrs");
+                    if (attrs.type > WindowManager.LayoutParams.LAST_APPLICATION_WINDOW)
+                        return;
                     if (PKGS.contains(attrs.packageName)) {
                         //XposedBridge.log("Change Window From" + attrs.packageName);
                         attrs.layoutInDisplayCutoutMode = LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
